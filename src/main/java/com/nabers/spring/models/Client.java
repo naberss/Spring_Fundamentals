@@ -2,11 +2,13 @@ package com.nabers.spring.models;
 
 public class Client {
 
+	private int ID;
 	private String name;
 	private int age;
 	private double height;
 
-	public Client(String name, int age, double height) {
+	public Client(int ID, String name, int age, double height) {
+		this.ID = ID;
 		this.name = name;
 		this.age = age;
 		this.height = height;
@@ -36,11 +38,17 @@ public class Client {
 		this.height = height;
 	}
 
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
 	@Override
 	public String toString() {
-		return "Test_Class [name=" + name + ", age=" + age + ", height=" + height + "]";
+		return "Client [ID=" + ID + ", name=" + name + ", age=" + age + ", height=" + height + "]";
 	}
-	
-	
 
 }
