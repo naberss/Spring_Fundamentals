@@ -1,4 +1,4 @@
-package com.nabers.spring.models;
+package com.nabers.spring.models.Entities;
 
 public class Client {
 
