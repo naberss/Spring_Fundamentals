@@ -5,23 +5,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.Min;
 
 @Entity
 public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MY_SEQ")
-	@SequenceGenerator(allocationSize = 1, name = "MY_SEQ")
+	@SequenceGenerator(initialValue = 1, name = "MY_SEQ")
 	private int id;
+
 	private String name;
 
-	public Product() {
-	}
+	@Min(value = 0)
+	private double price;
 
-	public Product(String name) {
-		super();
-		this.name = name;
-	}
+	@Min(value = 0)
+	@Min(value = 1)
+	private double discount;
 
 	public int getId() {
 		return id;
@@ -39,9 +40,20 @@ public class Product {
 		this.name = name;
 	}
 
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + "]";
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
 	}
 
 }

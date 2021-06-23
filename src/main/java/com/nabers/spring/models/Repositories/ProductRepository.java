@@ -1,9 +1,9 @@
 package com.nabers.spring.models.Repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.nabers.spring.models.Entities.Product;
 
-public interface ProductRepository extends CrudRepository<Product, Integer> {
+public interface ProductRepository extends PagingAndSortingRepository<Product, Integer> {
 
 }
