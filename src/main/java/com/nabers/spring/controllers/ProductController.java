@@ -43,6 +43,12 @@ public class ProductController {
 		return productRepostory.findById(id);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, path = "/findbyname")
+	public Iterable<Product> findByName(@RequestParam(name = "name") String name) {
+
+		return productRepostory.findByName(name);
+	}
+
 	@RequestMapping(method = RequestMethod.DELETE, path = "deletebyid")
 	public void delete(int id) {
 		productRepostory.deleteById(id);
@@ -50,8 +56,8 @@ public class ProductController {
 
 	@RequestMapping(method = RequestMethod.GET, path = "/paginatedrequest")
 	public Iterable<Product> paginatedRequest(@RequestParam(name = "pagnum") int pagnum,
-			                                  @RequestParam(name = "pagsize") int pagsize) {
-		
+			@RequestParam(name = "pagsize") int pagsize) {
+
 		Pageable page = PageRequest.of(pagnum, pagsize);
 		return productRepostory.findAll(page);
 
